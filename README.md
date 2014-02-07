@@ -11,46 +11,67 @@ Include jquery.sortable.js to your html page:
 <script src="js/jquery.sortable.js"></script>
 ```
 
-Update your table markup:
+Update your table markup.
+1. Add `data-header` attribute equals `true` to the `<thead>` of your table
+2. Add `data-sort-column` attribute equals `true` to every column header that should be sortable
+3. Add `data-body` attribute equals `true` to `<tbody>` of your table
 ```html
-<table class="sortable">
-  <thead data-head="true">
-    <tr>
-      <th data-sort-column="true">ID</th> <!-- this column will be sortable -->
-      <th data-sort-column="true">Name</th> <!-- this column will be sortable -->
-      <th data-sort-column="true">Last name</th> <!-- this column will be sortable -->
-      <th data-sort-column="true">Birthday</th> <!-- this column will be sortable -->
-      <th>Additional info</th> <!-- this column will *NOT* be sortable -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>John</td>
-      <td>Doe</td>
-      <td data-sort-value="1987-12-08">December 8, 1987</td>
-      <!--
-      'data-sort-value' determines value to be used in comparison while sorting.
-      Comparison of numbers is much faster then strings so converting strings to 
-      numbers (when it is possible) will increase performance. For example you can
-      use '565920000' instead of '1987-12-08'.
-      -->
-      <td>Foo bar</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jane</td>
-      <td>Doe</td>
-      <td data-sort-value="1992-08-15">August 15, 1992</td>
-      <td>Foo</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Phillip</td>
-      <td>Burns</td>
-      <td data-sort-value="1965-05-03">May 3, 1965</td>
-      <td>Bar</td>
-    </tr>
-  </tbody>
+<table class="sortable" border="1">
+    <thead data-header="true">
+        <tr>
+            <th data-sort-column="true">ID</th>
+            <th data-sort-column="true">Name</th>
+            <th data-sort-column="true">Last Name</th>
+            <th data-sort-column="true">Birthday</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody data-body="true">
+        <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>Doe</td>
+            <td data-sort-value="1987-12-08">December 8, 1987</td>
+            <td>Morbi id felis metus</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jane</td>
+            <td>Pope</td>
+            <td data-sort-value="1975-10-14">October 14, 1975</td>
+            <td>Maecenas id enim vel lectus lobortis molestie</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Bob</td>
+            <td>Ludwig</td>
+            <td data-sort-value="1995-05-05">May 5, 1995</td>
+            <td>Cras mi purus, dapibus in ipsum a, malesuada facilisis dolor</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Anne</td>
+            <td>Heisenberg</td>
+            <td data-sort-value="1967-01-31">January 31, 1967</td>
+            <td>Aliquam egestas tincidunt purus, a sagittis neque lacinia vehicula</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Kate</td>
+            <td>Miller</td>
+            <td data-sort-value="1991-08-17">August 17, 1991</td>
+            <td>Pellentesque vitae nulla elit</td>
+        </tr>
+    </tbody>
 </table>
+```
+
+Call to jQuery.tablesorter whenevery DOM will be ready:
+
+```html
+<script>
+    $(function() {
+        $('.sortable').sortable();
+    });
+</script>
 ```
