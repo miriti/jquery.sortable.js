@@ -12,9 +12,11 @@ Include jquery.sortable.js to your html page:
 ```
 
 Update your table markup.
+
 1. Add `data-header` attribute equals `true` to the `<thead>` of your table
 2. Add `data-sort-column` attribute equals `true` to every column header that should be sortable
 3. Add `data-body` attribute equals `true` to `<tbody>` of your table
+
 ```html
 <table class="sortable" border="1">
     <thead data-header="true">
