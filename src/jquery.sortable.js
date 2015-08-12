@@ -80,6 +80,7 @@
 			var linkText = $(th).html();
 			$(th).html('');
 
+			var thIndex = $(th).index();
 			var reverse = false;
 
 			$('<a/>', {
@@ -88,7 +89,7 @@
 				'href': '#',
 				'class': 'sortable-header-link',
 				'click': function () {
-					sort_by_column(i, reverse);
+					sort_by_column(thIndex, reverse);
 					reverse = !reverse;
 
 					$.each($('a.sortable-header-link'), function(i, a) {
